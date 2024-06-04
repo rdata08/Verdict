@@ -36,12 +36,23 @@ def sentiment_by_race(filename):
         
         # skips header of table
         next(csv_reader)  
+
+        people = {}
         
         for row in csv_reader:
             question = row[6]
+            person = row[0]
+            
             blob = TextBlob(question)
-            sentiment = blob.sentiment
-            print(sentiment)
+            sentiment = blob.sentiment.polarity
+
+            if person in people:
+                people[person] += sentiment
+            else:
+                people[person] = sentiment
+        
+        for polarity in people.values():
+            people[person] = polarity / get_question_count(person)
             
 avg_question_count_by_race('voirdiredata.csv')
 sentiment_by_race('voirdiredata.csv')
