@@ -8,8 +8,7 @@ app = Flask(__name__)
 url = 'https://us-east-1.aws.data.mongodb-api.com/app/data-oubqqaw/endpoint/data/v1/action/findOne'
 headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Request-Headers': '*',
-    'api-key': 'XUiCKwQgutiagkO31n2oXrFYvRDQt41JrXFAiYVD46dEk9YKaAKpWbmW872BHF8C'
+    'Access-Control-Request-Headers': '*'
 }
 
 @app.route('/findOne', methods=['GET'])
